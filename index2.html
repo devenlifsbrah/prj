@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+  
+    </style>
+  </head>
+  <body>
+  
+  
+  
+  <div>   Hello! Enter what you want to do today!</div>
+<div id = "title">
+  </div>
+ 
+
+ 
+</form>
+
+<script>
+jQuery(function($) {
+
+
+var socket = io.connect();
+var $title = $('#title');
+var $content = $('#content');
+
+socket.on('content', function(data){
+ $content.append(data + '<br/>');
+
+});
+
+
+
+
+socket.on('title', function(data){
+ $title.append('<h1>' + data + '</h1>' + '<br/>');
+
+});
+
+});
+
+
+
+</script>
+	
+	
+	
+
+  </body>
+</html>
